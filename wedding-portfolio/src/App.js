@@ -8,12 +8,17 @@ import PlannerEditForm from "./components/plannerComponents/PlannerEditForm";
 import PlannerPortfolio from "./components/plannerComponents/PlannerPortfolio";
 import GuestSearchForm from "./components/guestComponents/GuestSearchForm";
 import NavBar from "./components/NavBar";
+import PrivateRoute from "./utils/PrivateRoute"
+
 
 
 function App() {
   return (
     <div className="App">
-     <Route exact path="/" component={HomePage} />
+      <NavBar />
+     <Route exact path="/homepage" component={HomePage} />
+
+     <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
     </div>
   );
 }
