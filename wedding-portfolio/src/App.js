@@ -16,7 +16,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-     <Route exact path="/homepage" component={HomePage} />
+      <Route exact path="/homepage" component={HomePage} />
+      <Route path='/guest' component ={GuestSearchForm} />
 
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
     </div>
