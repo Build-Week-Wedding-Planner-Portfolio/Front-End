@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './styles.css';
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -19,6 +20,7 @@ function App() {
      <Route exact path="/homepage" component={HomePage} />
 
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
+     <Route path='/testplannerportfolio' component={PlannerPortfolio} />
     </div>
   );
 }
