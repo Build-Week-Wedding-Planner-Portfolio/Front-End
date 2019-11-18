@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import HomePage from "./components/HomePage";
-import SignIn from "./components/SignIn";
+import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import PlannerCreatePost from "./components/plannerComponents/PlannerCreatePost";
 import PlannerEditForm from "./components/plannerComponents/PlannerEditForm";
