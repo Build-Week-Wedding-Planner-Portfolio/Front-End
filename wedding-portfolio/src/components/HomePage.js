@@ -15,6 +15,5 @@ export default function HomePage () {
           <button><Link to="/guest">View as Guest</Link></button>
         </div>
       </div>
-
     )
 }
