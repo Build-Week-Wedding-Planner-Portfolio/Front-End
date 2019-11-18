@@ -8,7 +8,8 @@ import PlannerEditForm from "./components/plannerComponents/PlannerEditForm";
 import PlannerPortfolio from "./components/plannerComponents/PlannerPortfolio";
 import GuestSearchForm from "./components/guestComponents/GuestSearchForm";
 import NavBar from "./components/NavBar";
-import PrivateRoute from "./utils/PrivateRoute"
+import PrivateRoute from "./utils/PrivateRoute";
+import {Route} from "react-router-dom"
 
 
 
@@ -19,6 +20,7 @@ function App() {
      <Route exact path="/homepage" component={HomePage} />
 
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
+     <Login/>
     </div>
   );
 }
