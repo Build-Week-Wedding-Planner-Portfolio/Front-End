@@ -9,13 +9,18 @@ const mapStateToProps = state => {
 
 const PlannerPortfolio = (props) => {
     const [plannerWeddings, setPlannerWeddings] = useState([]);
+
     let id = 1;
+
     useEffect(() => {
+        let url = window.location.pathname;
+        let myId = parseInt(url.substring(url.lastIndexOf('/') + 1));
         axios.get("https://weddingplannerlambda.herokuapp.com/api/posts/all")
         .then(response => {
             console.log(response.data)
-            response.data.filter(element => element.user_id === id).forEach(wedding => {
+            response.data.filter(element => element.user_id === myId).forEach(wedding => {
                 setPlannerWeddings(plannerWeddings => [...plannerWeddings, wedding])
+                console.log(plannerWeddings)
             })
                     }).catch(err => {
         console.log(err);

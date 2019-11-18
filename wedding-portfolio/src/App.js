@@ -22,7 +22,7 @@ function App() {
       <Route path='/guest' component ={GuestSearchForm} />
 
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
-     <Route path='/testplannerportfolio' component={PlannerPortfolio} />
+     <Route path='/testplannerportfolio/:id' component={PlannerPortfolio} />
      <PrivateRoute path='/plannerportfolio' component={PlannerPortfolio}/>
     </div>
   );
