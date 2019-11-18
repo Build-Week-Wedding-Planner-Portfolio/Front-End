@@ -13,6 +13,7 @@ import PrivateRoute from "./utils/PrivateRoute"
 import { Route } from "react-router-dom";
 
 
+
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,8 @@ function App() {
       <Route path='/guest' component ={GuestSearchForm} />
 
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
-     <Route path='/testplannerportfolio' component={PlannerPortfolio} />
+     <Route path='/testplannerportfolio/:id' component={PlannerPortfolio} />
+     <PrivateRoute path='/plannerportfolio' component={PlannerPortfolio}/>
     </div>
   );
 }

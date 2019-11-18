@@ -1,6 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
 
+import styled from 'styled-components'
+import {Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
 const GuestCard = styled.div`
 background: #f6f6f6;
 color: #420700;
@@ -17,8 +19,12 @@ function GuestViewCard(props) {
             <img src={props.item_photo} width='100%'/>
             <h2>{props.wedding_location}</h2>
             <p>{props.wedding_theme}</p>
+            <Link to={`/testplannerportfolio/${props.user_id}`}>
+                <Button> View Planner</Button>
+            </Link>
             
         </GuestCard>
+
     )
 }
 
