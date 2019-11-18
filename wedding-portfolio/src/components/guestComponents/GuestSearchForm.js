@@ -1,6 +1,28 @@
 import React, { useState, useEffect } from "react";
 import GuestViewCard from "./GuestViewCard";
 import axios from "axios";
+import styled from 'styled-components'
+
+const GuestPortfolio = styled.div`
+    height: 100%;
+`;
+
+const InputSearch = styled.input`
+    padding: 2px 20px;
+    margin: 20px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 20px;
+    outline: none
+    // border: 1px solid grey;
+`;
+
+const CardBox = styled.div`
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+`;
 
 function GuestSearchForm () {
     const [query, setQuery] = useState("");
@@ -32,24 +54,26 @@ function GuestSearchForm () {
     }
 
     return(
-         <div className='portfolio-search'>
+         <GuestPortfolio className='portfolio-search'>
              <form>
-                 <input
+                 <InputSearch
                     type="text"
                     value={query}
                     name="search"
                     id="search"
-                    placeholder="Search Location"
+                    placeholder="Search by Location"
                     onChange={handleChange}
                 />
              </form>
-             <div className='card-container'>
+             <CardBox className='card-container'>
                  {queryResults.map(e => (
                      <GuestViewCard {...e}/>
                  ))}
-             </div>
-         </div>
+             </CardBox>
+         </GuestPortfolio>
     )
 }
 
 export default GuestSearchForm;
+
+
