@@ -4,6 +4,8 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default function LoginForm () {
     return (
+        <div> 
+        <image src = "" />
         <Form>
             <FormGroup>
                 <Label for="exampleEmail">Email</Label>
@@ -23,9 +25,7 @@ export default function LoginForm () {
             </FormGroup>
             <Button>Login</Button>
         </Form>
-
-
-
+        </div>
     )
 
 }

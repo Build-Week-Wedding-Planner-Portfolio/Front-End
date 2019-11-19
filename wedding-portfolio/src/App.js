@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './styles.css';
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -17,10 +18,12 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-     <Route exact path="/homepage" component={HomePage} />
+      <Route exact path="/homepage" component={HomePage} />
+      <Route path='/guest' component ={GuestSearchForm} />
 
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
-     <Login/>
+     <Route path='/testplannerportfolio' component={PlannerPortfolio} />
+     <Login path="/login" component={Login}/>
     </div>
   );
 }
