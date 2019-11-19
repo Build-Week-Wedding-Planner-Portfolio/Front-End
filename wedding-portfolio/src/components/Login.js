@@ -4,9 +4,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default function LoginForm () {
     return (
-        <div> 
+        <div className="body"> 
         <image src = "" />
-        <Form>
+        <Form className="login">
             <FormGroup>
                 <Label for="exampleEmail">Email</Label>
                 <Input 
@@ -23,7 +23,7 @@ export default function LoginForm () {
                 id="examplePassword" 
                 placeholder="Password (6 or more characters" />
             </FormGroup>
-            <Button>Login</Button>
+            <Button className="loginButton">Login</Button>
         </Form>
         </div>
     )

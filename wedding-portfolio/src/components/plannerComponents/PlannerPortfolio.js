@@ -1,14 +1,39 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import PlannerCard from './PlannerCard';
+import axios from 'axios';
+import {CardDeck} from 'reactstrap';
 
+const mapStateToProps = state => {
+    console.log(state);
+}
 
-const PlannerPortfolio = () => {
+const PlannerPortfolio = (props) => {
+    const [plannerWeddings, setPlannerWeddings] = useState([]);
+
+    let id = 1;
+
+    useEffect(() => {
+        let url = window.location.pathname;
+        let myId = parseInt(url.substring(url.lastIndexOf('/') + 1));
+        axios.get("https://weddingplannerlambda.herokuapp.com/api/posts/all")
+        .then(response => {
+            console.log(response.data)
+            response.data.filter(element => element.user_id === myId).forEach(wedding => {
+                setPlannerWeddings(plannerWeddings => [...plannerWeddings, wedding])
+                console.log(plannerWeddings)
+            })
+                    }).catch(err => {
+        console.log(err);
+    })
+    }, [])
+
 
 
     return (
         <div className="container">
             <div className="container profileContainer">
                 <div className="avatar-container">
+                {console.log(plannerWeddings)}
                     <img className="avatar" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="placeholder" />
                     <span> Name </span>
                     <span> Location </span>
@@ -17,7 +42,11 @@ const PlannerPortfolio = () => {
                 <p className="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div className="container">
-                <PlannerCard />
+            <CardDeck>
+            {plannerWeddings.map(wedding => (
+                <PlannerCard wedding={wedding}/>
+            ))}
+            </CardDeck>
             </div>
         </div>
     )
