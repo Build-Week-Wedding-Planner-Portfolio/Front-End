@@ -9,8 +9,9 @@ import PlannerEditForm from "./components/plannerComponents/PlannerEditForm";
 import PlannerPortfolio from "./components/plannerComponents/PlannerPortfolio";
 import GuestSearchForm from "./components/guestComponents/GuestSearchForm";
 import NavBar from "./components/NavBar";
-import PrivateRoute from "./utils/PrivateRoute"
-import { Route } from "react-router-dom";
+import PrivateRoute from "./utils/PrivateRoute";
+import {Route, Link} from "react-router-dom"
+
 
 
 
@@ -24,6 +25,7 @@ function App() {
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
      <Route path='/testplannerportfolio/:id' component={PlannerPortfolio} />
      <PrivateRoute path='/plannerportfolio' component={PlannerPortfolio}/>
+     <Link path="/login" component={Login}/>
     </div>
   );
 }

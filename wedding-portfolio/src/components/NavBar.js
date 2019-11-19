@@ -5,6 +5,7 @@ const NavBar = () => {
     return (
         <div className='navbar'>
             <NavLink exact to='/homepage'>Home</NavLink>
+            <NavLink to="/about">About</NavLink>
             <NavLink to="/signup">Sign Up</NavLink>
             <NavLink to="/Login">Login</NavLink>
             <NavLink to="/guest">Guest</NavLink>
