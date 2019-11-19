@@ -5,17 +5,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./images/evelina-friman-hw_sKmjb0ns-unsplash.jpg");
+  background-size: cover;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+    
 }
 
 .body{
   height: 100vh;
-  background-size: cover;
-  background-image: url("./images/LoginImage.jpg");
+  /* background-size: cover; */
+  /* background-image: url("./images/foto-pettine-IfjHaIoAoqE-unsplash.jpg"); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +31,17 @@ code {
   #DCDCDC;
 } */
 
+.navbar {
+  background-image: url("./images/evelina-friman-hw_sKmjb0ns-unsplash.jpg");
+  background-size: cover;
+  
+}
+
+.navbar, a {
+  color: black;
+  font-size: 1.0rem;
+}
+
 
 .login Input{
   width:300px;
@@ -36,6 +51,6 @@ code {
   width:100px;
   font-size: 1.2rem;
   background-color: #FFF5EE;
-  color: grey;
+  color: darkslategrey;
   border: none;
 }
