@@ -25,7 +25,7 @@ function App() {
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
      <Route path='/testplannerportfolio/:id' component={PlannerPortfolio} />
      <PrivateRoute path='/plannerportfolio' component={PlannerPortfolio}/>
-     <Link path="/login" component={Login}/>
+     <Route exact path="/login" component={Login}/>
     </div>
   );
 }
