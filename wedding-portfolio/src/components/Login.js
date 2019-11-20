@@ -6,17 +6,20 @@ import { login } from "../actions";
 
 function LoginForm (props) {
     
-        const [userInfo, setUserInfo] = useState("");
+        const [userInfo, setUserInfo] = useState({
+          username: "",
+          password: ""
+        });
 
         const handleChange = e => {
             setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
           };
        
           const handleSubmit = e => {
-            console.log(":for class", props);
+              console.log(userInfo)
             e.preventDefault();
             props
-              .logIn(userInfo)
+              .login(userInfo)
         
               .then(res => {
                 if (res) {
@@ -24,7 +27,7 @@ function LoginForm (props) {
                   props.history.push("/plannerportfolio");
                 } else {
                   console.log("else fired");
-                  alert("Log in failed: Please Check Usernname and Password");
+                  alert("Log in failed: Please Check Username and Password");
                 }
               });
           };
@@ -32,15 +35,15 @@ function LoginForm (props) {
           return (
         <div className="body"> 
             <image src = "" />
-            <Form onSubmit={handleSubmit} className="login">
+            <Form onSubmit={e => handleSubmit(e)} className="login">
                 <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
+                    <Label for="exampleusername">Username</Label>
                     <Input 
-                    type="email" 
-                    name="email" 
-                    id="exampleEmail" 
-                    placeholder="Email" 
-                    onChange={handleChange}
+            
+                    name="username" 
+                    id="username" 
+                    placeholder="Username" 
+                    onChange={e => handleChange(e)}
                     value={userInfo.username}
                     />
                 </FormGroup>
@@ -50,8 +53,8 @@ function LoginForm (props) {
                     type="password" 
                     name="password" 
                     id="examplePassword" 
-                    placeholder="Password (6 or more characters" 
-                    onChange={handleChange}
+                    placeholder="Password (6 or more characters)" 
+                    onChange={e => handleChange(e)}
                     value={userInfo.password}
                     />
                 </FormGroup>

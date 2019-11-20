@@ -9,6 +9,7 @@ export const LOG_USER_SUCCESS = "LOG_USER_SUCCESS";
 export const LOG_USER_FAILURE = "LOG_USER_FAILURE";
 
 export const register = user => {
+    console.log(user)
     return dispatch => {
         dispatch({ type: GET_USER_START});
         return axios
