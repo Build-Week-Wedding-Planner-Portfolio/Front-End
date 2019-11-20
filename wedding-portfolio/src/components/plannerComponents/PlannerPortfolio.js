@@ -10,11 +10,11 @@ import { connect } from "react-redux";
 
 
 function PlannerPortfolio() {
-    const Delete = () => {
+    const Delete = (event_id) => {
       const id = localStorage.getItem("id");
       axios
         .delete(
-          `https://weddingplannerlambda.herokuapp.com/api/posts/:id`)
+          `/posts/${id}/${event_id}`)
         .then(res => {
           getAllEventsByCurrentPlanner();
           console.log("delete response: ", res);
@@ -27,7 +27,7 @@ function PlannerPortfolio() {
 
     useEffect(() => {
         axiosWithAuth()
-          .get(`https://weddingplannerlambda.herokuapp.com/api/posts`)
+          .get(`/posts`)
           .then(res => {
             console.log("hello from PlannerPortfolio.js axiosWithAuth ", res);
             setInfo(res.data);
@@ -35,7 +35,7 @@ function PlannerPortfolio() {
             localStorage.setItem("id", id);
             getAllEventsByCurrentPlanner();
           })
-          .catch(err => console.log(err.respone));
+          .catch(err => console.log(err.res));
       }, []);
     
       const [user, setUser] = useState([]);
@@ -44,7 +44,7 @@ function PlannerPortfolio() {
         console.log("is it working getAllEventsByCurrentPlanner() ");
         const id = localStorage.getItem("id");
         axiosWithAuth()
-          .get(`https://weddingplannerlambda.herokuapp.com/api/posts/:id`)
+          .get(`/posts/${id}`)
           .then(res => {
             console.log("get all", res);
             setUser(res.data);
@@ -67,8 +67,8 @@ function PlannerPortfolio() {
             </div> 
     
     
-            <Link to="/plannerportfolio">
-              <button>Create Event</button>
+            <Link to="/plannercreatepost">
+              <button>Create Wedding Event</button>
             </Link>
           </form>
           <div>

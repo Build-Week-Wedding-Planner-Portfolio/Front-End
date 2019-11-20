@@ -26,7 +26,7 @@ function PlannerEditForm(props) {
 
         const id = localStorage.getItem('id');
         axiosWithAuth()
-            .put(`https://weddingplannerlambda.herokuapp.com/api/posts/:id/${props.history.location.state.event_id}`, input)
+            .put(`/posts/${id}/${props.history.location.state.event_id}`, input)
 
             .then(res => {
                 console.log("Post Event in plannerEditForm.js: ", res);
@@ -81,7 +81,7 @@ function PlannerEditForm(props) {
                 type="text"
                 name="wedding_date"
                 onChange={handleChanges2}
-                placeholder="Enter Vendors"
+                placeholder="Wedding Date"
                 value={input.wedding_date}
             />
 

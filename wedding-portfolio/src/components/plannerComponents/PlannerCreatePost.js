@@ -15,22 +15,19 @@ function PlannerCreatePost(props) {
         console.log("I am in handleChanges2).");
         setInput({ ...input, [e.target.name]: e.target.value });
 
-        console.log("handleChanges2 input: ", input);
+        console.log("handleChanges2 input from PlannerCreatePost.js: ", input);
       };
 
       const submitForm = e => {
         e.preventDefault();
     
         axiosWithAuth()
-          .get(`https://weddingplannerlambda.herokuapp.com/api/posts`)
+          .get(`/posts`)
           .then(res => {
             console.log(res);
             const id = res.data.id;
             axiosWithAuth()
-              .post(
-                `https://weddingplannerlambda.herokuapp.com/api/posts/:id`,
-                input
-              )
+              .post(`/posts/${id}`, input)
               .then(res => {
                 console.log("Post Event: ", res);
                 props.history.push("/plannerportfolio");
