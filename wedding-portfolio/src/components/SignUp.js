@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import styled from 'styled-components';
-
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { register } from "../actions";
 //Styles begin here
@@ -69,9 +69,11 @@ return (
             <p className="errors">{errors.email}</p>
         )}
         <FormContent type="text" name="location" placeholder="Location" />
+        <Link to="/login">
         <StyledButton type='submit'>
             Sign Up
         </StyledButton>
+        </Link>
         </FormCard>
         {newUsers.map(user => (
             <ul key="{user.id}">
