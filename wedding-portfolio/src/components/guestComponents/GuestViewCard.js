@@ -18,14 +18,17 @@ function GuestViewCard(props) {
         <GuestCard className='guest-card' key={Math.random()}>
             <img src={props.item_photo} width='100%'/>
             <h2>{props.wedding_location}</h2>
-            <p>{props.wedding_theme}</p>
+            <p>{props.wedding_date}</p>
+            <p>Theme: {props.wedding_theme}</p>
+            <h5>{props.couple_name}</h5>
+            <p><small>Photographer: {props.wedding_photographer}</small></p>
             <Link to={`/testplannerportfolio/${props.user_id}`}>
                 <Button> View Planner</Button>
             </Link>
-            
         </GuestCard>
 
     )
 }
 
 export default GuestViewCard;
+
