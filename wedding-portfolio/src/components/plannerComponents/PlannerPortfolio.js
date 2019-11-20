@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import PlannerCard from './PlannerCard';
 import axios from 'axios';
 import {CardDeck} from 'reactstrap';
+//
+import { connect } from "react-redux";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const mapStateToProps = state => {
     console.log(state);

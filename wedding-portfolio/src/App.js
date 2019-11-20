@@ -21,6 +21,7 @@ function App() {
       <NavBar />
       <Route exact path="/homepage" component={HomePage} />
       <Route path='/guest' component ={GuestSearchForm} />
+      <Route path='/signup' component={SignUp} />
 
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
      <Route path='/testplannerportfolio/:id' component={PlannerPortfolio} />

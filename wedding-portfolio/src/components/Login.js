@@ -13,10 +13,10 @@ function LoginForm (props) {
           };
        
           const handleSubmit = e => {
-            console.log(":for class", props);
+              console.log(userInfo)
             e.preventDefault();
             props
-              .logIn(userInfo)
+              .login(userInfo)
         
               .then(res => {
                 if (res) {
@@ -24,7 +24,7 @@ function LoginForm (props) {
                   props.history.push("/plannerportfolio");
                 } else {
                   console.log("else fired");
-                  alert("Log in failed: Please Check Usernname and Password");
+                  alert("Log in failed: Please Check Username and Password");
                 }
               });
           };
@@ -34,12 +34,12 @@ function LoginForm (props) {
             <image src = "" />
             <Form onSubmit={handleSubmit} className="login">
                 <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
+                    <Label for="exampleEmail">Username</Label>
                     <Input 
-                    type="email" 
-                    name="email" 
+            
+                    name="username" 
                     id="exampleEmail" 
-                    placeholder="Email" 
+                    placeholder="Username" 
                     onChange={handleChange}
                     value={userInfo.username}
                     />
@@ -50,7 +50,7 @@ function LoginForm (props) {
                     type="password" 
                     name="password" 
                     id="examplePassword" 
-                    placeholder="Password (6 or more characters" 
+                    placeholder="Password (6 or more characters)" 
                     onChange={handleChange}
                     value={userInfo.password}
                     />
