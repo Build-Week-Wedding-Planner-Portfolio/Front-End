@@ -29,10 +29,8 @@ function SignUp(props) {
     setInput({
       username: "",
       password: "",
-      location: "",
-      last_name: "",
       email: "",
-      first_name: ""
+      location: "",
     });
   };
 
