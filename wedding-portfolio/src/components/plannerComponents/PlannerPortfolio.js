@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import PlannerCard from './PlannerCard';
 import axios from 'axios';
-import {CardDeck} from 'reactstrap';
-import PlannerCreatePost from './PlannerCreatePost'
+// import {CardDeck} from 'reactstrap';
+// import PlannerCreatePost from './PlannerCreatePost'
 
 import { Link } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth";
@@ -14,7 +14,7 @@ function PlannerPortfolio() {
       const id = localStorage.getItem("id");
       
       axios
-        .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${[id]}/${event_id}`)
+        .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${id}/posts/${event_id}`)
         .then(res => {
           console.log(id);
           getAllEventsByCurrentPlanner();
