@@ -50,7 +50,25 @@ code {
 .loginButton{
   width:100px;
   font-size: 1.2rem;
-  background-color: #FFF5EE;
+  background-color: #FFFAFA;
   color: darkslategrey;
   border: none;
+  border-radius: 5px;
 }
+
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15%;
+  margin-bottom: 20px;
+
+}
+
+form Input {
+  border-radius: 5px;
+  margin-bottom: 25px;
+  padding-right:25px;
+}
+
