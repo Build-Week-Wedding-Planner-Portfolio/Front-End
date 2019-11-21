@@ -11,8 +11,8 @@ import { connect } from "react-redux";
 
 function PlannerPortfolio(props) {
     const Delete = (event_id) => {
-      // const id = localStorage.getItem("id");
-      const id = props.match.params.id
+      const id = localStorage.getItem("id");
+      
       console.log()
       axios
         .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${id}/${event_id}`)
