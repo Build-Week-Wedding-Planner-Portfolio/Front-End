@@ -10,12 +10,12 @@ import { connect } from "react-redux";
 
 
 function PlannerPortfolio(props) {
-    const Delete = () => {
-      const id = localStorage.getItem("id");
-      // const id = props.match.params.id
-     
+    const Delete = (event_id) => {
+      // const id = localStorage.getItem("id");
+      const id = props.match.params.id
+      console.log()
       axios
-        .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${id}`)
+        .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${id}/${event_id}`)
         .then(res => {
           console.log(id);
           getAllEventsByCurrentPlanner();
