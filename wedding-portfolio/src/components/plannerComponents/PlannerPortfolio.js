@@ -2,20 +2,19 @@ import React, {useEffect, useState} from 'react';
 import PlannerCard from './PlannerCard';
 import axios from 'axios';
 // import {CardDeck} from 'reactstrap';
-import PlannerCreatePost from './PlannerCreatePost'
+// import PlannerCreatePost from './PlannerCreatePost'
 
 import { Link } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import { connect } from "react-redux";
 
 
-function PlannerPortfolio(props) {
+function PlannerPortfolio() {
     const Delete = (event_id) => {
       const id = localStorage.getItem("id");
       
-      console.log()
       axios
-        .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${id}/${event_id}`)
+        .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${id}/posts/${event_id}`)
         .then(res => {
           console.log(id);
           getAllEventsByCurrentPlanner();
@@ -42,6 +41,7 @@ function PlannerPortfolio(props) {
     
       const [user, setUser] = useState([]);
 
+  
       const getAllEventsByCurrentPlanner = () => {
         console.log("is it working getAllEventsByCurrentPlanner() ");
         const id = localStorage.getItem("id");

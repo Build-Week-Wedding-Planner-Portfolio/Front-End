@@ -6,7 +6,7 @@ export default function PlannerCard (props) {
   return(
     <div>
       <div>
-        <p>{props.item_photo}</p>
+      <img src={props.item_photo} />
       </div>
       <div>
       <p>{props.couple_name}</p>
