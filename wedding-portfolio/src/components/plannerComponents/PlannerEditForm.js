@@ -5,12 +5,12 @@ function PlannerEditForm(props) {
     console.log(props)
     const [input, setInput] = useState({
         
-        couple_name: props.history.location.state.couple_name,
-        item_photo: props.history.location.state.item_photo,
-        wedding_location: props.history.state.wedding_location,
-        wedding_photographer: props.history.state.wedding_photographer,
-        wedding_theme: props.history.state.wedding_theme,
-        wedding_date: props.history.state.wedding_date
+        couple_name: props.history.wedding_location.state.couple_name,
+        item_photo: props.history.wedding_location.state.item_photo,
+        wedding_location: props.history.wedding_location.state.wedding_location,
+        wedding_photographer: props.history.wedding_location.state.wedding_photographer,
+        wedding_theme: props.history.wedding_location.state.wedding_theme,
+        wedding_date: props.history.wedding_location.state.wedding_date
     });
 
     const handleChanges2 = e => {

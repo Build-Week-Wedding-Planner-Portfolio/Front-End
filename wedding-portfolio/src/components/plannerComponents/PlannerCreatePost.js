@@ -9,10 +9,10 @@ function PlannerCreatePost(props) {
         item_photo: "",
         wedding_location: "",
         wedding_photographer: ""
-    })
+    });
 
     const handleChanges2 = e => {
-        console.log("I am in handleChanges2).");
+        console.log("I am in handleChanges2 on PlannerCreatPost.js");
         setInput({ ...input, [e.target.name]: e.target.value });
 
         console.log("handleChanges2 input from PlannerCreatePost.js: ", input);
@@ -20,20 +20,23 @@ function PlannerCreatePost(props) {
 
       const submitForm = e => {
         e.preventDefault();
-    
+       
         axiosWithAuth()
-          .post(`/posts`, input)
+          .get(`/posts`)
           .then(res => {
-            console.log(res);
-            // const id = res.data.id;
-            // axiosWithAuth()
-            //   .post(`/posts/${id}`, input)
-            //   .then(res => {
-            //     console.log("Post Event: ", res);
-            //     props.history.push("/plannerportfolio");
-            //   })
-            //   .catch(err => console.log("Post Event Error: ", err.res));
+            console.log(res.data);
+            const id = [res.data.id];
+            
+
+            axiosWithAuth()
+              .post(`/posts/${id}`, input)
+              .then(res => {
+                console.log("This is Post Event: ", res);
+                props.history.push("/plannerportfolio");
+              })
+              .catch(err => console.log("Post Event Error: ", err.res));
           });
+          
           setInput({
             couple_name: "",
             wedding_theme: "",
