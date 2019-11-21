@@ -2,20 +2,22 @@ import React, {useEffect, useState} from 'react';
 import PlannerCard from './PlannerCard';
 import axios from 'axios';
 // import {CardDeck} from 'reactstrap';
-// import PlannerCreatePost from './PlannerCreatePost'
+import PlannerCreatePost from './PlannerCreatePost'
 
 import { Link } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import { connect } from "react-redux";
 
 
-function PlannerPortfolio() {
+function PlannerPortfolio(props) {
     const Delete = (event_id) => {
-      const id = localStorage.getItem("id");
+      // const id = localStorage.getItem("id");
+      const id = props.match.params.id
+      console.log()
       axios
-        .delete(
-          `/posts/${id}/${event_id}`)
+        .delete(`https://weddingplannerlambda.herokuapp.com/api/posts/${id}/${event_id}`)
         .then(res => {
+          console.log(id);
           getAllEventsByCurrentPlanner();
           console.log("delete response: ", res);
         })
@@ -31,7 +33,7 @@ function PlannerPortfolio() {
           .then(res => {
             console.log("hello from PlannerPortfolio.js axiosWithAuth ", res);
             setInfo(res.data);
-            const id = res.data.id;
+            const id = [res.data.id];
             localStorage.setItem("id", id);
             getAllEventsByCurrentPlanner();
           })
@@ -54,15 +56,15 @@ function PlannerPortfolio() {
 
       return (
         <div>
-          <div><h2>{info.first_name} Portfolio</h2>
+          <div><h2>{info.username}'s Portfolio</h2>
           </div>
           <form>
             <button onClick={() => localStorage.clear()}>Log Out</button>
             <div>
               <div>
-                <h2>{info.first_name} {info.last_name}</h2>
-                <h2>{info.location}</h2>
                 <h2>{info.email}</h2>
+                <h2>{info.location}</h2>
+                <h2>{info.password}</h2>
               </div>
             </div> 
     
