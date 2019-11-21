@@ -27,7 +27,6 @@ function PlannerCreatePost(props) {
             console.log(res.data);
             const id = [res.data.id];
             
-
             axiosWithAuth()
               .post(`/posts/${id}`, input)
               .then(res => {
