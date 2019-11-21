@@ -22,17 +22,17 @@ function PlannerCreatePost(props) {
         e.preventDefault();
     
         axiosWithAuth()
-          .get(`/posts`)
+          .post(`/posts`, input)
           .then(res => {
             console.log(res);
-            const id = res.data.id;
-            axiosWithAuth()
-              .post(`/posts/${id}`, input)
-              .then(res => {
-                console.log("Post Event: ", res);
-                props.history.push("/plannerportfolio");
-              })
-              .catch(err => console.log("Post Event Error: ", err.respone));
+            // const id = res.data.id;
+            // axiosWithAuth()
+            //   .post(`/posts/${id}`, input)
+            //   .then(res => {
+            //     console.log("Post Event: ", res);
+            //     props.history.push("/plannerportfolio");
+            //   })
+            //   .catch(err => console.log("Post Event Error: ", err.res));
           });
           setInput({
             couple_name: "",
