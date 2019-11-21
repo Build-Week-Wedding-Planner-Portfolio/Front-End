@@ -15,15 +15,15 @@ import SignUp from "./components/SignUp";
 
 
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <NavBar />
 
       <Route exact path="/homepage" component={HomePage} />
       <Route path='/guest' component ={GuestSearchForm} />
-      <Route path='/signup' component={SignUp} />
-      <Route exact path="/login" component={LoginForm}/>
+      <Route path='/signup' {...props} component={SignUp} />
+      <Route exact path="/login" {...props} component={LoginForm}/>
       {/* <Route path='/testplannerportfolio/:id' component={PlannerPortfolio} /> */}
      
      <PrivateRoute  path='/plannerportfolio' component={PlannerPortfolio}/>
