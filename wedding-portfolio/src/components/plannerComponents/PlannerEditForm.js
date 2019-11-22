@@ -5,12 +5,13 @@ function PlannerEditForm(props) {
     console.log(props)
     const [input, setInput] = useState({
         
-        couple_name: props.history.wedding_location.state.couple_name,
-        item_photo: props.history.wedding_location.state.item_photo,
-        wedding_location: props.history.wedding_location.state.wedding_location,
-        wedding_photographer: props.history.wedding_location.state.wedding_photographer,
-        wedding_theme: props.history.wedding_location.state.wedding_theme,
-        wedding_date: props.history.wedding_location.state.wedding_date
+        couple_name: props.history.location.state.couple_name,
+        item_photo: props.history.location.state.item_photo,
+        wedding_location: props.history.location.state.wedding_location,
+        wedding_theme: props.history.location.state.wedding_theme,
+        wedding_date: props.history.location.state.wedding_date,
+        wedding_photographer: props.history.location.state.wedding_photographer
+        
     });
 
     const handleChanges2 = e => {
@@ -26,7 +27,7 @@ function PlannerEditForm(props) {
 
         const id = localStorage.getItem('id');
         axiosWithAuth()
-            .put(`/posts/${id}/${props.history.location.state.event_id}`, input)
+            .put(`/posts/${props.history.location.state.event_id}`, input)
 
             .then(res => {
                 console.log("Post Event in plannerEditForm.js: ", res);
@@ -92,7 +93,6 @@ function PlannerEditForm(props) {
                 placeholder="Wedding Photographer"
                 value={input.wedding_photographer}
             />
-
       <button>Submit</button>
     </form>
     );
